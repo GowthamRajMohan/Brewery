@@ -1,6 +1,6 @@
 package io.smacs.brewery.web.services;
 
-import io.smacs.brewery.web.BeerDto;
+import io.smacs.brewery.web.model.BeerDto;
 
 import java.util.UUID;
 

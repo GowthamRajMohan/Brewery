@@ -1,4 +1,4 @@
-package io.smacs.brewery.web;
+package io.smacs.brewery.web.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,15 +10,12 @@ import java.util.UUID;
 /**
  * @author MGR on 11-12-2021
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BeerDto {
+public class CustomerDto {
 
     private UUID id;
-    private String beerName;
-    private String beerStyle;
-    private Long upc;
+    private String name;
 }

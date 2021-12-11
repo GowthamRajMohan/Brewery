@@ -1,6 +1,6 @@
 package io.smacs.brewery.web.controller;
 
-import io.smacs.brewery.web.BeerDto;
+import io.smacs.brewery.web.model.BeerDto;
 import io.smacs.brewery.web.services.BeerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
