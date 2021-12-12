@@ -9,4 +9,5 @@ import java.util.UUID;
  */
 public interface BeerService {
     BeerDto findByBeerId(UUID id);
+    BeerDto saveBeer(BeerDto beer);
 }
