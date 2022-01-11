@@ -25,15 +25,26 @@ public class BeerController {
 
     @GetMapping("/{beerId}")
     public ResponseEntity<BeerDto> getBeer(@PathVariable("beerId") UUID beerId){
-        return new ResponseEntity<BeerDto>(beerService.findByBeerId(beerId), HttpStatus.OK);
+        return new ResponseEntity<>(beerService.findByBeerId(beerId), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<BeerDto> saveBeer(BeerDto beerDto){
+    public ResponseEntity<BeerDto> saveBeer(@RequestBody BeerDto beerDto){
         BeerDto savedBeer = beerService.saveBeer(beerDto);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Location",
                 "http://localhost:8080/api/v1/beer/"+savedBeer.getId().toString());
-        return new ResponseEntity<BeerDto>(httpHeaders,HttpStatus.CREATED);
+        return new ResponseEntity<>(httpHeaders,HttpStatus.CREATED);
+    }
+    @PutMapping("/{beerId}")
+    public ResponseEntity<BeerDto> updateBeer(@PathVariable("beerId")UUID beerId, @RequestBody BeerDto beerDto) {
+        beerService.updateBeer(beerId, beerDto);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/{beerId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBeer(@PathVariable("beerId")UUID beerId) {
+        beerService.deleteBeer(beerId);
     }
 }
